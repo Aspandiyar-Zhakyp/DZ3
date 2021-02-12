@@ -1,36 +1,35 @@
 ﻿using System;
 
-namespace ArraysAndStringsHW
+namespace ArrayAndStringsHW2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // 2
+            // 1
+            int spaceValue = 0;
+            ConsoleKeyInfo Symbol;
+            Console.WriteLine("Программа подсчета веденных пробелов");
+            do
+            {
+                Console.WriteLine("Введите символ");
+                Console.WriteLine("Для окончания ввода нажмите точку ");
+                Symbol = Console.ReadKey();
+                Console.WriteLine();
+                Console.Clear();
 
-            Console.WriteLine("Введите 6 значный билет");
-            try
-            {
-                string sticket = Console.ReadLine();
-                if (sticket.Length < 0 && sticket.Length > 6)
+                Console.WriteLine(Symbol.Key);
+                if (Symbol.KeyChar == ' ')
                 {
-                    throw new IndexOutOfRangeException();
+                    Console.WriteLine("Пробел");
+                    spaceValue++;
                 }
-                int Iticket = Convert.ToInt32(sticket);
-                Console.WriteLine((Convert.ToInt32(Convert.ToString(sticket)[0].ToString()) +
-                                   Convert.ToInt32(Convert.ToString(sticket)[1].ToString()) +
-                                   Convert.ToInt32(Convert.ToString(sticket)[2].ToString())) ==
-                                  (Convert.ToInt32(Convert.ToString(sticket)[3].ToString()) +
-                                   Convert.ToInt32(Convert.ToString(sticket)[4].ToString()) +
-                                   Convert.ToInt32(Convert.ToString(sticket)[5].ToString()))
-                    ? "Билет счастливый"
-                    : "Билет не является счастливым");
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Завершение программы");
-                Environment.Exit(0);
-            }
+                if (Symbol.KeyChar == '.')
+                {
+                    break;
+                }
+            } while (true);
+            Console.WriteLine("Количество введенных пробелов = " + spaceValue);
         }
     }
 }
