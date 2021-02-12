@@ -1,4 +1,12 @@
-Console.WriteLine("Введите 6 значный билет");
+using System;
+
+namespace ArrayAndStringsHW2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите 6 значный билет");
             try
             {
                 string sticket = Console.ReadLine();
@@ -21,3 +29,6 @@ Console.WriteLine("Введите 6 значный билет");
                 Console.WriteLine("Завершение программы");
                 Environment.Exit(0);
             }
+        }
+    }
+}
