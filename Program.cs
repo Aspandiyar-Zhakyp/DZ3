@@ -6,33 +6,31 @@ namespace ArraysAndStringsHW
     {
         static void Main(string[] args)
         {
-            // 1 
+            // 2
 
-            int spaceValue = 0;
-            ConsoleKeyInfo Symbol;
-            Console.WriteLine("Программа подсчета веденных пробелов");
-            do
+            Console.WriteLine("Введите 6 значный билет");
+            try
             {
-                Console.WriteLine("Введите символ");
-                Console.WriteLine("Для окончания ввода нажмите точку ");
-                Symbol = Console.ReadKey();
-                Console.WriteLine();
-                Console.Clear();
-                //if ((Symbol.Modifiers & ConsoleModifiers.Shift) != 0) Console.Write("SHIFT+");
-                //if ((Symbol.Key==ConsoleKey.DownArrow)) Console.Write(Symbol.Key);
-
-                Console.WriteLine(Symbol.Key);
-                if (Symbol.KeyChar == ' ')
+                string sticket = Console.ReadLine();
+                if (sticket.Length < 0 && sticket.Length > 6)
                 {
-                    Console.WriteLine("Пробел");
-                    spaceValue++;
+                    throw new IndexOutOfRangeException();
                 }
-                if (Symbol.KeyChar == '.')
-                {
-                    break;
-                }
-            } while (true);
-            Console.WriteLine("Количество введенных пробелов = " + spaceValue);
+                int Iticket = Convert.ToInt32(sticket);
+                Console.WriteLine((Convert.ToInt32(Convert.ToString(sticket)[0].ToString()) +
+                                   Convert.ToInt32(Convert.ToString(sticket)[1].ToString()) +
+                                   Convert.ToInt32(Convert.ToString(sticket)[2].ToString())) ==
+                                  (Convert.ToInt32(Convert.ToString(sticket)[3].ToString()) +
+                                   Convert.ToInt32(Convert.ToString(sticket)[4].ToString()) +
+                                   Convert.ToInt32(Convert.ToString(sticket)[5].ToString()))
+                    ? "Билет счастливый"
+                    : "Билет не является счастливым");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Завершение программы");
+                Environment.Exit(0);
+            }
         }
     }
 }
